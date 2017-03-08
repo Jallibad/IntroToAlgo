@@ -33,14 +33,18 @@ def strassen(x,y):
     p7 = strassen(a-c,e+f)
     return numpy.vstack((numpy.hstack((p5+p4-p2+p6,p1+p2)),numpy.hstack((p3+p4,p1+p5-p3-p7))))
 
-#n = int(input("n: "))
-for n in [16,32,64,128,256,512,1024]:
-    x = numpy.random.random((n,n))
-    y = numpy.random.random((n,n))
-    print(n)
-    start_time = time.time()
-    basic(x,y)
-    print(time.time()-start_time)
-    start_time = time.time()
-    strassen(x,y)
-    print(time.time()-start_time)
+###n = int(input("n: "))
+##for n in [16,32,64,128,256,512,1024]:
+##    x = numpy.random.random((n,n))
+##    y = numpy.random.random((n,n))
+##    print(n)
+##    start_time = time.time()
+##    basic(x,y)
+##    print(time.time()-start_time)
+##    start_time = time.time()
+##    strassen(x,y)
+##    print(time.time()-start_time)
+##
+
+x = numpy.random.random((4,4))
+y = numpy.random.random((4,4))
