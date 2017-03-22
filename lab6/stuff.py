@@ -20,10 +20,10 @@ class Graph(object):
 def dijkstra(graph, initial):
     visited = {initial: 0}
     path = {}
-
     nodes = set(graph.nodes)
 
     while nodes:
+        #deleteMin
         u = None
         for node in nodes:
             if node in visited:
@@ -53,6 +53,8 @@ def shortest_path(graph, origin, destination):
         return 0, list(origin)
     visited, paths = dijkstra(graph, origin)
     full_path = deque()
+    if destination not in paths:
+        return 0, origin
     new_destination = paths[destination]
 
     while new_destination != origin:
@@ -74,7 +76,7 @@ if __name__ == '__main__':
             graph.add_node(currLine[1])
             graph.add_edge(str(currLine[0]),str(currLine[1]),int(currLine[2]))
     
-    for i in range(1,6):
+    for i in sorted(list(graph.nodes),key = lambda x : int(x)):
         distance, path = shortest_path(graph, '1', str(i))
         print(str(i) + ': ' + str(distance) + ", [" +  ", ".join(path) + "]")
         
